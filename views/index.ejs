@@ -8,15 +8,20 @@
 		<link rel="stylesheet" href="ui-select-master/select.css"/>
 	</head>
 	<script>
-
+		var soqlBuilderWizardApp = angular.module('SOQLBuilderWizardApp',[]);
+		var homeCtrl = soqlBuilderWizardApp.controller('homeCtrl', ['', function(){
+			$scope.availableColors = ['a','b'];
+		}])
 	</script>
 	<body ng-app="SOQLBuilderWizardApp">
-	<ui-select multiple ng-model="multipleDemo.colors" theme="select2" ng-disabled="disabled" style="width: 300px;">
-		<ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
-		<ui-select-choices repeat="color in availableColors | filter:$select.search">
-		  {{color}}
-		</ui-select-choices>
-	</ui-select>
+		<div ng-controller="homeCtrl">
+		<ui-select multiple ng-model="multipleDemo.colors" theme="select2" ng-disabled="disabled" style="width: 300px;">
+			<ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+			<ui-select-choices repeat="color in availableColors | filter:$select.search">
+			  {{color}}
+			</ui-select-choices>
+		</ui-select>
+		</div>
 	</body>
 
 
